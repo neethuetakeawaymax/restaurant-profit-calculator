@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RestaurantCalc Pro | Profit Calculator</title>
+    <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Restaurant Profit Calculator</div>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="container">
+          <h1>Maximize Your Restaurant's Profits</h1>
+          <p>
+            Use our advanced calculator to analyze your finances and boost your
+            bottom line.
+          </p>
+          <a href="#calculator" class="cta-button">Try It Now</a>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <h2>Why Choose Restaurant Profit Calculator?</h2>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <i class="fas fa-calculator"></i>
+              <h3>Accurate Calculations</h3>
+              <p>Get precise profit calculations instantly.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-chart-line"></i>
+              <h3>Financial Insights</h3>
+              <p>
+                Gain valuable insights into your restaurant's financial health.
+              </p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-mobile-alt"></i>
+              <h3>Mobile Friendly</h3>
+              <p>Access your calculations anywhere, anytime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="calculator">
+        <div class="container">
+          <h2>Restaurant Profit Calculator</h2>
+          <div class="calculator">
+            <label for="total-sales">Total Sales (in £):</label>
+            <input
+              type="number"
+              id="total-sales"
+              placeholder="Enter total sales"
+              required
+            />
+
+            <label for="total-cost">Total Costs (in £):</label>
+            <input
+              type="number"
+              id="total-cost"
+              placeholder="Enter total costs"
+              required
+            />
+
+            <label for="other-expenses">Other Expenses (in £):</label>
+            <input
+              type="number"
+              id="other-expenses"
+              placeholder="Enter other expenses"
+              required
+            />
+
+            <button onclick="calculateProfit()">Calculate Profit</button>
+
+            <p id="result"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>Request a More Detailed Report</h2>
+          <div class="lead-capture">
+            <form id="leadForm">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+              />
+
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                placeholder="Message or additional details"
+              ></textarea>
+
+              <button type="submit">Request Report</button>
+            </form>
+            <p id="form-message"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Restaurant Profit Calculator. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
