@@ -1,18 +1,18 @@
 // Profit calculation logic
 function calculateProfit() {
-  const totalSales = document.getElementById('total-sales').value;
-  const totalCost = document.getElementById('total-cost').value;
-  const otherExpenses = document.getElementById('other-expenses').value;
+  const totalSales = parseFloat(document.getElementById('total-sales').value);
+  const totalCost = parseFloat(document.getElementById('total-cost').value);
+  const otherExpenses = parseFloat(document.getElementById('other-expenses').value);
 
-  if (!totalSales || !totalCost || !otherExpenses) {
-    document.getElementById('result').innerHTML = 'Please fill in all fields.';
+  if (!totalSales || !totalCost || !otherExpenses || totalSales < 0 || totalCost < 0 || otherExpenses < 0) {
+    document.getElementById('result').innerHTML = 'Please fill in all fields with valid positive numbers.';
     return;
   }
 
   const profit = totalSales - totalCost - otherExpenses;
   document.getElementById(
     'result'
-  ).innerHTML = `Your restaurant's profit is: £${profit}`;
+  ).innerHTML = `Your restaurant's profit is: £${profit.toFixed(2)}`;
 }
 
 // Lead capture form submission
