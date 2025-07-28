@@ -6,13 +6,27 @@ function calculateProfit() {
 
   if (!totalSales || !totalCost || !otherExpenses || totalSales < 0 || totalCost < 0 || otherExpenses < 0) {
     document.getElementById('result').innerHTML = 'Please fill in all fields with valid positive numbers.';
+    document.getElementById('detailed-results').style.display = 'none';
     return;
   }
 
   const profit = totalSales - totalCost - otherExpenses;
-  document.getElementById(
-    'result'
-  ).innerHTML = `Your restaurant's profit is: £${profit.toFixed(2)}`;
+  const profitMargin = ((profit / totalSales) * 100);
+  const totalExpenses = totalCost + otherExpenses;
+  const breakEvenSales = totalExpenses;
+
+  const resultElement = document.getElementById('result');
+  if (profit >= 0) {
+    resultElement.innerHTML = `<div class="profit-positive">Your restaurant's profit is: £${profit.toFixed(2)}</div>`;
+  } else {
+    resultElement.innerHTML = `<div class="profit-negative">Your restaurant has a loss of: £${Math.abs(profit).toFixed(2)}</div>`;
+  }
+
+  document.getElementById('net-profit').textContent = `£${profit.toFixed(2)}`;
+  document.getElementById('profit-margin').textContent = `${profitMargin.toFixed(2)}%`;
+  document.getElementById('break-even').textContent = `£${breakEvenSales.toFixed(2)}`;
+  
+  document.getElementById('detailed-results').style.display = 'block';
 }
 
 // Lead capture form submission
