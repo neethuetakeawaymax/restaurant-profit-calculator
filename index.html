@@ -86,7 +86,24 @@
 
             <button onclick="calculateProfit()">Calculate Profit</button>
 
-            <p id="result"></p>
+            <div id="result"></div>
+            <div id="detailed-results" style="display: none;">
+              <h3>Detailed Analysis</h3>
+              <div class="results-grid">
+                <div class="result-item">
+                  <strong>Net Profit:</strong>
+                  <span id="net-profit"></span>
+                </div>
+                <div class="result-item">
+                  <strong>Profit Margin:</strong>
+                  <span id="profit-margin"></span>
+                </div>
+                <div class="result-item">
+                  <strong>Break-even Sales:</strong>
+                  <span id="break-even"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
