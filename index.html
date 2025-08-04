@@ -4,18 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RestaurantCalc Pro | Profit Calculator</title>
-    <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">Restaurant Profit Calculator</div>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#calculator">Calculator</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div style="display: flex; align-items: center;">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -60,33 +66,54 @@
         <div class="container">
           <h2>Restaurant Profit Calculator</h2>
           <div class="calculator">
-            <label for="total-sales">Total Sales (in £):</label>
-            <input
-              type="number"
-              id="total-sales"
-              placeholder="Enter total sales"
-              required
-            />
+            <div class="real-time-indicator" id="realTimeIndicator"></div>
+            
+            <div class="input-group">
+              <label for="total-sales">Total Sales (in £):</label>
+              <i class="fas fa-cash-register input-icon revenue"></i>
+              <input
+                type="number"
+                id="total-sales"
+                placeholder="Enter total sales"
+                required
+              />
+            </div>
 
-            <label for="total-cost">Total Costs (in £):</label>
-            <input
-              type="number"
-              id="total-cost"
-              placeholder="Enter total costs"
-              required
-            />
+            <div class="input-group">
+              <label for="total-cost">Total Costs (in £):</label>
+              <i class="fas fa-utensils input-icon cost"></i>
+              <input
+                type="number"
+                id="total-cost"
+                placeholder="Enter total costs"
+                required
+              />
+            </div>
 
-            <label for="other-expenses">Other Expenses (in £):</label>
-            <input
-              type="number"
-              id="other-expenses"
-              placeholder="Enter other expenses"
-              required
-            />
+            <div class="input-group">
+              <label for="other-expenses">Other Expenses (in £):</label>
+              <i class="fas fa-receipt input-icon expense"></i>
+              <input
+                type="number"
+                id="other-expenses"
+                placeholder="Enter other expenses"
+                required
+              />
+            </div>
 
-            <button onclick="calculateProfit()">Calculate Profit</button>
+            <button onclick="calculateProfit()">
+              <i class="fas fa-calculator"></i> Calculate Profit
+            </button>
+
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
 
             <p id="result"></p>
+            
+            <div class="chart-container" id="chartContainer">
+              <canvas id="profitChart" width="400" height="200"></canvas>
+            </div>
           </div>
         </div>
       </section>
